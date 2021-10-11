@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log In- Page</title>
+
+</head>
+<body>
+	<form method="post">
+	<br><br>
+      {% csrf_token %}
+    	<div class="login-box">
+		<center>
+
+        	<h1><strong class="text-primary">Sign In</strong></h1>
+
+					<div class="textbox">
+          	<i class="fa fa-user" aria-hidden="true"></i>
+          	{{login_form.username}}
+        	</div>
+
+        	<br>
+
+        	<div class="textbox">
+          	<i class="fa fa-lock" aria-hidden="true"></i>
+          	{{login_form.password}}
+        	</div>
+
+			<p></p>
+        	<div class="col-md-4">
+          	<button class="btn btn-primary btn-md px-4">SIGN IN</button>
+        	</div>
+			</center>
+		</div>
+	</form>
+</body>
+</html>

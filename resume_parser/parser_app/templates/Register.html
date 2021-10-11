@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+{% load static %}
+
+<html lang="en">
+
+<head>
+	<title>Register - Page</title>
+</head>
+
+<body>
+	<div class="main">
+  <center>
+  <div class="register">
+    <h2 class='text-black'>Sign-up Here</h2>
+    <form id="register" method="post">
+      {% csrf_token %}
+		<label>Email<span aria-hidden="true" class="required">*</span> </label>
+      	<br>
+      	{{form.email}}
+      	<br><br>
+      <label class=' text-black'>Username<span aria-hidden="true" class="required">*</span></label>
+      <br>
+      {{form.username}}
+		<br><br>
+      <label>Password<span aria-hidden="true" class="required">*</span> </label>
+      <br>
+      {{form.password1}}
+      <br><br>
+      <label>Confirm Password<span aria-hidden="true" class="required">*</span> </label>
+      <br>
+      {{form.password2}}
+      <br><br>
+      <div class="col-md-4">
+      <button class="btn btn-primary btn-md px-4">SIGN UP</button>
+      </div>
+      <p></p>
+      <p>Already have an account?<a href={% url 'login' %}>Sign In</p></a>
+      </form>
+    </div>
+  </center>
+</div>
+</body>
+
+</html>
