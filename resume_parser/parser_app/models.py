@@ -6,6 +6,9 @@ from django.forms import ClearableFileInput
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
+from django.contrib.auth.models import User
+
+
 class Resume(models.Model):
     resume        = models.FileField('Upload Resumes', upload_to='resumes/')
     name          = models.CharField('Name', max_length=255, null=True, blank=True)
@@ -32,3 +35,12 @@ class UploadResumeModelForm(forms.ModelForm):
 @receiver(post_delete, sender=Resume)
 def submission_delete(sender, instance, **kwargs):
     instance.resume.delete(False)
+
+class Customer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    email = models.EmailField(max_length=200, null=True)
+    username = models.CharField(max_length=200, null=True)
+
+
+    def __str__(self):
+        return self.username

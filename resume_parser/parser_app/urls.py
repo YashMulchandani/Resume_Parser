@@ -19,7 +19,18 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.homepage, name='homepage'),
+    path('', views.index, name='homepage'),
+    path('Parser', views.Parser, name='Parser'),
+    path('About', views.about, name='about'),
+    path('Pricing', views.pricing, name='pricing'),
+    path('Service', views.service, name='service'),
+    path('Project', views.project, name='project'),
+    path('Contact', views.contact, name='contact'),
+
+    path('Register', views.register, name='register'),
+    path('Login', views.Login, name='login'),
+    path('Logout', views.Logout, name='logout'),
+
     path('export_csv', views.export_csv, name='export-csv'),
     path('export_xls', views.export_xls, name='export-xls'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

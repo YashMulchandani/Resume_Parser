@@ -38,13 +38,12 @@
     {% include 'navbar.html' %}
 
     <div class="container-fluid">
-      {% include 'messages.html' %}
-    
+
       {% if form %}
       <div class="row">
         <div class="col-lg-5 col-md-5"></div>
         <div class="col-lg-6 col-md-6">
-          <form method="POST" enctype="multipart/form-data" action="{% url 'homepage' %}" style="margin-top: 2%; margin-bottom: 3%">
+          <form method="POST" enctype="multipart/form-data" action="{% url 'Parser' %}" style="margin-top: 2%; margin-bottom: 3%">
             {% csrf_token %}
             {{ form|crispy }}
             <button type="submit" id="import" name="import" class="btn btn-success" style="margin-top: 2%; border-radius: 0">Upload</button>
@@ -54,7 +53,7 @@
       {% elif resumes %}
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <a href="{% url 'homepage' %}">
+            <a href="{% url 'Parser' %}">
               <button class="btn btn-success" style="margin-bottom: 10px; border-radius: 0;">Upload More</button>
             </a>
             <a href="{% url 'export-csv' %}">
