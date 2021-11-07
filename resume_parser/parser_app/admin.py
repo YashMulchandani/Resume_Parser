@@ -7,4 +7,4 @@ class ResumeAdmin(admin.ModelAdmin):
 
 @admin.register(Customer)
 class CustomerAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('user', 'email', 'username', 'Number_of_Resumes', 'Subscription')

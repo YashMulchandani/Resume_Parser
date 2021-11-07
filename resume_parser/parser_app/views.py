@@ -19,9 +19,28 @@ from django.contrib.auth.forms import AuthenticationForm
 
 from .decorators import unauthenticated_user
 
+def validate(customer):
+    if customer.Subscription == True:
+        customer.Number_of_Resumes = customer.Number_of_Resumes + 1
+        customer.save()
+        return True
+
+    if customer.Number_of_Resumes < 3:
+        customer.Number_of_Resumes = customer.Number_of_Resumes + 1
+        customer.save()
+        return True
+    else:
+        return False
+
+
 
 def Parser(request):
+
     if request.method == 'POST':
+        customer = Customer.objects.get(user=request.user)
+        value = validate(customer)
+        if value == False:
+            return render(request, 'pricing.html', )
         Resume.objects.all().delete()
         file_form = UploadResumeModelForm(request.POST, request.FILES)
         files = request.FILES.getlist('resume')
@@ -128,6 +147,16 @@ def about(request):
 
 def pricing(request):
     return render(request, 'pricing.html', )
+
+def payment_form(request):
+    return render(request, 'payment_form.html', )
+
+def payment(request):
+    customer = Customer.objects.get(user=request.user)
+    if customer:
+        customer.Subscription = bool(True)
+        customer.save()
+        return redirect('homepage')
 
 
 def service(request):

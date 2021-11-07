@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+{% load static %}
+
+<html lang="en">
+
+<head>
+	<title>Payment - Page</title>
+</head>
+
+<body>
+	<div class="main">
+  <center>
+  <div class="payment">
+    <h2 class='text-black'>Payment Here</h2>
+    <form id="payment" method="post">
+      {% csrf_token %}
+		<label>Name<span aria-hidden="true" class="#">*</span></label>
+      	<br>
+      	{{form.name}}
+      	<br><br>
+      <label class=' text-black'>Card Number<span aria-hidden="false" class="#">*</span></label>
+      <br>
+      {{form.number}}
+		<br><br>
+      <label>CVV<span aria-hidden="true" class="#">*</span> </label>
+      <br>
+      {{form.password}}
+      <br><br>
+      <div class="col-md-4">
+      <button class="btn btn-primary btn-md px-4"><a href="{% url 'payment' %}">Payment</a></button>
+      </div>
+      </form>
+    </div>
+  </center>
+</div>
+</body>
+
+</html>
