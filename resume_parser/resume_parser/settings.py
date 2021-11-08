@@ -135,3 +135,11 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_AGE = 600  # set just 10 minutes
 
 SESSION_SAVE_EVERY_REQUEST = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com' # new
+EMAIL_HOST_USER = 'resumeparser.hr@gmail.com' # new
+EMAIL_HOST_PASSWORD = 'mouahzuhbvscnhgp' # new
+EMAIL_PORT = 587 # new
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False

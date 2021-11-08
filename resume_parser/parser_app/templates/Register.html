@@ -1,14 +1,7 @@
-<!DOCTYPE HTML>
-{% load static %}
+{% extends 'Common.html' %}
+{% block content %}
 
-<html lang="en">
-
-<head>
-	<title>Register - Page</title>
-</head>
-
-<body>
-	<div class="main">
+<div class="main">
   <center>
   <div class="register">
     <h2 class='text-black'>Sign-up Here</h2>
@@ -34,11 +27,9 @@
       <button class="btn btn-primary btn-md px-4">SIGN UP</button>
       </div>
       <p></p>
-      <p>Already have an account?<a href={% url 'login' %}>Sign In</p></a>
+      <p>Already have an account?<a href={% url 'login' %}>Sign In</a></p>
       </form>
     </div>
   </center>
 </div>
-</body>
-
-</html>
+{% endblock %}

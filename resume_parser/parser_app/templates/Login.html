@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-{% load static %}
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Log In- Page</title>
-
-</head>
-<body>
+{% extends 'Common.html' %}
+{% block content %}
 	<form method="post">
 	<br><br>
       {% csrf_token %}
@@ -29,11 +21,16 @@
         	</div>
 
 			<p></p>
+
+      		<center>
+        		<a href={% url 'password_reset' %}>Forgot Password?</a>
+      		</center>
+
+			<p></p>
         	<div class="col-md-4">
           	<button class="btn btn-primary btn-md px-4">SIGN IN</button>
         	</div>
 			</center>
 		</div>
 	</form>
-</body>
-</html>
+{% endblock %}

@@ -1,16 +1,14 @@
 from django.shortcuts import render, redirect
-from django.views import generic
-from django.views.generic import ListView
 from pyresparser import ResumeParser
 from .models import *
-from django.contrib import messages
 from django.conf import settings
 from django.db import IntegrityError
-from django.http import HttpResponse, FileResponse, Http404
 import os
 import csv
 import xlwt
 import datetime
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
 
 from .forms import *
 from django.contrib.auth import login, authenticate, logout
@@ -168,7 +166,23 @@ def project(request):
 
 
 def contact(request):
-    return render(request, 'contact.html', )
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            try:
+                send_mail(name, message, email, [settings.EMAIL_HOST_USER], fail_silently=False)
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('Thankyou')
+    return render(request, "contact.html", {'form': form})
+
+def thankyou(request):
+    return render(request, "Thankyou_Page.html",)
 
 @unauthenticated_user
 def register(request):

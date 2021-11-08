@@ -25,3 +25,8 @@ class NewUserForm(UserCreationForm):
             # Creating record in Customer table
             models.Customer.objects.get_or_create(user=user, email=user.email, username=user.username)
         return user
+
+class ContactForm(forms.Form):
+    name = forms.CharField(required=True)
+    email = forms.EmailField(required=True)
+    message = forms.CharField(widget=forms.Textarea, required=True)
