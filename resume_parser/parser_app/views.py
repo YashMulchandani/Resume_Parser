@@ -139,10 +139,7 @@ def index(request):
 
 
 def about(request):
-    customer = Customer.objects.get(user=request.user)
-    if customer:
-        count = customer.Number_of_Resumes
-    return render(request, 'about.html', {'count': count})
+    return render(request, 'about.html', )
 
 
 def pricing(request):
