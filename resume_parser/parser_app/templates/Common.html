@@ -3,12 +3,26 @@
 
 <html lang="en">
   <head>
+	  <title>Resume Parser</title>
+	  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/logomarkv2.ico' %}">
+    <title>{% block title %}{% endblock %}</title>
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="megakit,business,company,agency,multipurpose,modern,bootstrap4">
 
-  <meta name="author" content="themefisher.com">
+  <meta name="author" content="">
 
   <title>Resume Parser	</title>
 
@@ -27,11 +41,8 @@
 
 </head>
 
-<body>
-
-
+<body oncontextmenu="return false;">
 <!-- Header Start -->
-
 <header class="navigation">
 	<div class="header-top ">
 		<div class="container">
@@ -75,6 +86,7 @@
 					</ul>
 			  </li>
 			   <li class="nav-item"><a class="nav-link" href="{% url 'service' %}">Services</a></li>
+			   <li class="nav-item"><a class="nav-link" href="{% url 'Parser' %}">Parser</a></li>
 			   <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
 
 				{% if user.is_authenticated %}
@@ -178,9 +190,8 @@
     <script src="{% static 'plugins/counterup/jquery.counterup.min.js' %}"></script>
 
     <!-- Google Map -->
-    <script src="{% static 'plugins/google-map/map.js' %}"></script>
-<!--    <script src="{% static 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap' %}"></script>-->
     <script src="{% static 'js/script.js' %}"></script>
+	<script src="{% static 'js/stop_inspect.js' %}"></script>
 
 </body>
 </html>

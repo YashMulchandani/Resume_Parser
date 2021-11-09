@@ -1,66 +1,40 @@
-<!doctype html>
+{% extends 'Common.html' %}
 {% load static %}
 {% load active %}
 {% load crispy_forms_tags %}
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Facebook Cards -->
-    <meta property="og:description" content="A fun project to store my learning from each book that I read"/>
-    <meta property="og:url" content=""/>
-    <meta property="og:image" content="{% static 'images/logomark.png' %}"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:site_name" content="Bookworm"/>
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@omkarpathak27">
-    <meta name="twitter:creator" content="Omkar Pathak">
-    <meta name="twitter:title" content= "Bookworm">
-    <meta name="twitter:description" content="A fun project to store my learning from each book that I read">
-    <meta name="twitter:creator" content="Omkar Pathak">
-    <meta name="twitter:image:src" content="{% static 'images/logomark.png' %}">
-    <meta name="twitter:domain" content="https://www.omkarpathak.in">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-    <link rel="shortcut icon" href="{% static 'images/logomarkv2.ico' %}">
-    <title>{% block title %}{% endblock %}</title>
-  </head>
-  <body style="font-family: 'Poppins', sans-serif;">
-    {% include 'navbar.html' %}
-
-    <div class="container-fluid">
+{% block content %}
+<div class="container-fluid">
 
       {% if form %}
+      {% if user.is_authenticated %}
       <div class="row">
         <div class="col-lg-5 col-md-5"></div>
         <div class="col-lg-6 col-md-6">
           <form method="POST" enctype="multipart/form-data" action="{% url 'Parser' %}" style="margin-top: 2%; margin-bottom: 3%">
             {% csrf_token %}
             {{ form|crispy }}
-            <button type="submit" id="import" name="import" class="btn btn-success" style="margin-top: 2%; border-radius: 0">Upload</button>
+            <button type="submit" id="import" name="import" class="btn btn-danger" style="margin-top: 2%; border-radius: 0">Upload</button>
           </form>
         </div>
       </div>
+      {% else %}
+          <div class="col-md-10">
+            <p align="left" style="margin-top: 5%">Please Login if you already have an account  <a href="{% url 'login' %}" style="color:red">Login</a></p>
+            <span style="text-align:left">Don't have account with us Register Here  <a href="{% url 'register' %}" style="color:red">Register</a></span>
+          </div>
+      {% endif %}
       {% elif resumes %}
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <a href="{% url 'Parser' %}">
-              <button class="btn btn-success" style="margin-bottom: 10px; border-radius: 0;">Upload More</button>
+              <button class="btn btn-danger" style="margin-top: 2%; margin-bottom: 2%; border-radius: 0;">Upload More</button>
             </a>
             <a href="{% url 'export-csv' %}">
-              <button class="btn btn-success" style="margin-bottom: 10px; border-radius: 0;">Export CSV</button>
+              <button class="btn btn-danger" style="margin-top: 2%; margin-bottom: 2%; border-radius: 0;">Export CSV</button>
             </a>
             <a href="{% url 'export-xls' %}">
-              <button class="btn btn-success" style="margin-bottom: 10px; border-radius: 0;">Export Excel</button>
+              <button class="btn btn-danger" style="margin-top: 2%; margin-bottom: 2%; border-radius: 0;">Export Excel</button>
             </a>
         </div>
       </div>
@@ -69,7 +43,7 @@
           <table class="table table-bordered table-striped table-responsive">
             <thead>
               <tr>
-                <th>#</th>
+                <th>S.no</th>
                 <th>Resume File</th>
                 <th>Name</th>
                 <th>Email</th>
@@ -106,6 +80,4 @@
       </div>
       {% endif %}
     </div>
-  
-  </body>
-</html>
+{% endblock %}
