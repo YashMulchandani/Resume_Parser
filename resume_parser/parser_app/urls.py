@@ -30,6 +30,8 @@ urlpatterns = [
     path('Contact', views.contact, name='contact'),
     path('Thankyou', views.thankyou, name='Thankyou'),
     path('Loader', views.loader, name='Loader'),
+    path('Terms_and_Conditions', views.terms_and_conditions, name='Terms_and_Conditions'),
+    path('Privacy_Policy', views.privacy_policy, name='Privacy_Policy'),
 
     path('Register', views.register, name='register'),
     path('Login', views.Login, name='login'),

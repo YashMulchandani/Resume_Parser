@@ -197,6 +197,11 @@ def contact(request):
 def thankyou(request):
     return render(request, "Thankyou_Page.html", )
 
+def terms_and_conditions(requests):
+    return render(requests, "Terms_and_Conditions.html")
+
+def privacy_policy(requests):
+    return render(requests, "Privacy_Policy.html")
 
 @unauthenticated_user
 def register(request):
