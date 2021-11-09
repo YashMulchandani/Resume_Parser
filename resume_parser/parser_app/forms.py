@@ -6,6 +6,7 @@ from . import models
 
 
 # Create your forms here.
+from .models import Customer
 
 
 class NewUserForm(UserCreationForm):

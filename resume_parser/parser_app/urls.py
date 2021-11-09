@@ -24,12 +24,12 @@ urlpatterns = [
     path('Parser', views.Parser, name='Parser'),
     path('About', views.about, name='about'),
     path('Pricing', views.pricing, name='pricing'),
-    path('Payment_form', views.payment_form, name='payment_form'),
     path('Payment', views.payment, name='payment'),
     path('Service', views.service, name='service'),
     path('Project', views.project, name='project'),
     path('Contact', views.contact, name='contact'),
     path('Thankyou', views.thankyou, name='Thankyou'),
+    path('Loader', views.loader, name='Loader'),
 
     path('Register', views.register, name='register'),
     path('Login', views.Login, name='login'),

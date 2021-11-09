@@ -17,6 +17,7 @@ from django.contrib.auth.forms import AuthenticationForm
 
 from .decorators import unauthenticated_user
 
+
 def validate(customer):
     if customer.Subscription == True:
         customer.Number_of_Resumes = customer.Number_of_Resumes + 1
@@ -31,9 +32,7 @@ def validate(customer):
         return False
 
 
-
 def Parser(request):
-
     if request.method == 'POST':
         customer = Customer.objects.get(user=request.user)
         value = validate(customer)
@@ -136,25 +135,31 @@ def export_xls(request):
 
 
 def index(request):
-    return render(request, 'index.html', )
+    return render(request, 'index.html',)
 
 
 def about(request):
-    return render(request, 'about.html', )
+    customer = Customer.objects.get(user=request.user)
+    if customer:
+        count = customer.Number_of_Resumes
+    return render(request, 'about.html', {'count': count})
 
 
 def pricing(request):
     return render(request, 'pricing.html', )
 
-def payment_form(request):
-    return render(request, 'payment_form.html', )
+
+def loader(request):
+
+    return render(request, 'loader.html', )
+
 
 def payment(request):
     customer = Customer.objects.get(user=request.user)
     if customer:
         customer.Subscription = bool(True)
         customer.save()
-        return redirect('homepage')
+        return redirect('Loader')
 
 
 def service(request):
@@ -181,8 +186,10 @@ def contact(request):
             return redirect('Thankyou')
     return render(request, "contact.html", {'form': form})
 
+
 def thankyou(request):
-    return render(request, "Thankyou_Page.html",)
+    return render(request, "Thankyou_Page.html", )
+
 
 @unauthenticated_user
 def register(request):
@@ -198,6 +205,7 @@ def register(request):
     else:
         form = NewUserForm()
     return render(request, 'Register.html', {'form': form})
+
 
 @unauthenticated_user
 def Login(request):
@@ -219,8 +227,8 @@ def Login(request):
     form = AuthenticationForm()
     return render(request, 'Login.html', {'login_form': form})
 
+
 def Logout(request):
     logout(request)
     messages.success(request, 'you are logged out')
     return redirect('homepage')
-

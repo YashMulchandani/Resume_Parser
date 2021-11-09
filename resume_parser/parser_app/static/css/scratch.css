@@ -1,0 +1,60 @@
+.box {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  margin: 100px auto;
+}
+
+.text {
+  font-family: 'Open Sans', sans-serif;
+  position: absolute;
+  bottom: 50%;
+  left: 23%;
+  font-size: 20px;
+  color: #BDBDBD;
+}
+
+.rupee {
+  display: inline-block;
+  position: absolute;
+  bottom: 29%;
+  left: 77%;
+  color: #9E9E9E;
+
+  -webkit-animation: movement 1500ms infinite ease-in-out;
+  animation: movement 1500ms infinite ease-in-out;
+}
+
+@-webkit-keyframes movement {}
+
+@keyframes movement {
+  0%{
+    -webkit-transform: translateY(0) scale(0);
+    transform: translateY(0) scale(0);
+  }
+  50% {
+    -webkit-transform: translateY(-50px) scale(2);
+    transform: translateY(-50px) scale(2);
+  }
+  100% {
+    -webkit-transform: translateY(-100px) scale(0);
+    transform: translateY(-100px) scale(0);
+  }
+}
+.fa-heart {
+  color: red;
+}
+
+.hcc {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.mii {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+

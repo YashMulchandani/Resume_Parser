@@ -33,9 +33,9 @@
 				<div class="about-item pr-3 mb-5 mb-lg-0">
 					<span class="h6 text-color">What we are</span>
 					<h2 class="mt-3 mb-4 position-relative content-title">We are dynamic team of creative people</h2>
-					<p class="mb-5">We provide consulting services in the area of IFRS and management reporting, helping companies to reach their highest level. We optimize business processes, making them easier.</p>
+					<p class="mb-5">We provide wide range of services with our product and helps wide range of companies to get the best candidats for their companies.</p>
 
-					<a href="#" class="btn btn-main btn-round-full">Get started</a>
+					<a href="{% url 'homepage' %}" class="btn btn-main btn-round-full">Get started</a>
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6">
@@ -55,19 +55,19 @@
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="about-info-item mb-4 mb-lg-0">
 					<h3 class="mb-3"><span class="text-color mr-2 text-md ">01.</span>Our Mission</h3>
-					<p>llum similique ducimus accusamus laudantium praesentium, impedit quaerat, itaque maxime sunt deleniti voluptas distinctio .</p>
+					<p>To exceed our customers’ expectations with innovative and bespoke Assurance, Testing, Inspection and Certification services for their operations and supply chain. Globally. 24/7.</p>
 				</div>		
 			</div>
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="about-info-item mb-4 mb-lg-0">
-					<h3 class="mb-3"><span class="text-color mr-2 text-md">02.</span>Vission</h3>
-					<p>llum similique ducimus accusamus laudantium praesentium, impedit quaerat, itaque maxime sunt deleniti voluptas distinctio .</p>
+					<h3 class="mb-3"><span class="text-color mr-2 text-md">02.</span>Our Vission</h3>
+					<p>To be the world’s most trusted partner for Resume Parser</p>
 				</div>		
 			</div>
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="about-info-item mb-4 mb-lg-0">
 					<h3 class="mb-3"><span class="text-color mr-2 text-md">03.</span>Our Approach</h3>
-					<p>llum similique ducimus accusamus laudantium praesentium, impedit quaerat, itaque maxime sunt deleniti voluptas distinctio .</p>
+					<p>We will Provide our services to all the Big and Small and Startup Companies to so that their valuable time can be invested in the most crucial task then checking resumes of more than 100 candidate.</p>
 				</div>		
 			</div>
 		</div>
@@ -78,36 +78,27 @@
 <section class="section counter bg-counter">
 	<div class="container">
 		<div class="row">
+			{% if user.is_authenticated %}
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="counter-item text-center mb-5 mb-lg-0">
 					<i class="ti-check color-one text-md"></i>
-					<h3 class="mt-2 mb-0 text-white"><span class="counter-stat font-weight-bold">1730</span> +</h3>
-					<p class="text-white-50">Project Done</p>
+					<h3 class="mt-2 mb-0 text-white"><span class="counter-stat font-weight-bold">{{count}}</span></h3>
+					<p class="text-white-50">Resume Parsed</p>
 				</div>
 			</div>
+
+			{% else %}
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="counter-item text-center mb-5 mb-lg-0">
-					<i class="ti-flag color-one text-md"></i>
-					<h3 class="mt-2 mb-0 text-white"><span class="counter-stat font-weight-bold">125 </span>M </h3>
-					<p class="text-white-50">User Worldwide</p>
+					<i class="ti-check color-one text-md"></i>
+					<h3 class="mt-2 mb-0 text-white"><span class="counter-stat font-weight-bold">0</span></h3>
+					<p class="text-white-50">Resume Parsed</p>
 				</div>
 			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="counter-item text-center mb-5 mb-lg-0">
-					<i class="ti-layers color-one text-md"></i>
-					<h3 class="mt-2 mb-0 text-white"><span class="counter-stat font-weight-bold">39</span></h3>
-					<p class="text-white-50">Availble Country</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="counter-item text-center">
-					<i class="ti-medall color-one  text-md"></i>
-					<h3 class="mt-2 mb-0 text-white"><span class="counter-stat font-weight-bold">14</span></h3>
-					<p class="text-white-50">Award Winner </p>
-				</div>
-			</div>
+			{% endif %}
 		</div>
 	</div>
+
 </section>
 <!-- section Counter End  -->
 <!--  Section Services Start -->
@@ -123,17 +114,15 @@
 		</div>
 
 		<div class="row justify-content-center">
+
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="team-item-wrap mb-5">
 					<div class="team-item position-relative">
-						<img src="{% static 'images/team/team-1.jpg' %}" alt="" class="img-fluid w-100">
+						<img src="{% static 'images/team/WhatsApp Image 2021-04-07 at 4.29.58 PM.jpeg' %}" alt="" class="img-fluid w-100">
 						<div class="team-img-hover">
 							<ul class="team-social list-inline">
 								<li class="list-inline-item">
 									<a href="#" class="facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-								</li>
-								<li class="list-inline-item">
-									<a href="#" class="twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
 								</li>
 								<li class="list-inline-item">
 									<a href="#" class="instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
@@ -145,12 +134,11 @@
 						</div>
 					</div>
 					<div class="team-item-content">
-						<h4 class="mt-3 mb-0 text-capitalize">Justin hammer</h4>
-						<p>Digital Marketer</p>
+						<h4 class="mt-3 mb-0 text-capitalize">Yash Mulchandani</h4>
+						<p>Developer</p>
 					</div>
 				</div>
 			</div>
-
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="team-item-wrap mb-5">
 					<div class="team-item position-relative">
@@ -161,9 +149,6 @@
 									<a href="#" class="facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
 								</li>
 								<li class="list-inline-item">
-									<a href="#" class="twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-								</li>
-								<li class="list-inline-item">
 									<a href="#" class="instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
 								</li>
 								<li class="list-inline-item">
@@ -173,12 +158,11 @@
 						</div>
 					</div>
 					<div class="team-item-content">
-						<h4 class="mt-3 mb-0 text-capitalize">Jason roy</h4>
-						<p>UI/UX Designer</p>
+						<h4 class="mt-3 mb-0 text-capitalize">Sahib Sood</h4>
+						<p>Front-End Developer</p>
 					</div>
 				</div>
 			</div>
-
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="team-item-wrap mb-5 ">
 					<div class="team-item position-relative">
@@ -189,9 +173,6 @@
 									<a href="#" class="facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
 								</li>
 								<li class="list-inline-item">
-									<a href="#" class="twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-								</li>
-								<li class="list-inline-item">
 									<a href="#" class="instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
 								</li>
 								<li class="list-inline-item">
@@ -201,8 +182,8 @@
 						</div>
 					</div>
 					<div class="team-item-content">
-						<h4 class="mt-3 mb-0 text-capitalize">Henry oswald</h4>
-						<p>Developer</p>
+						<h4 class="mt-3 mb-0 text-capitalize">Yash Jaiswar</h4>
+						<p>Backend Developer</p>
 					</div>
 				</div>
 			</div>
@@ -216,9 +197,6 @@
 									<a href="#" class="facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
 								</li>
 								<li class="list-inline-item">
-									<a href="#" class="twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-								</li>
-								<li class="list-inline-item">
 									<a href="#" class="instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
 								</li>
 								<li class="list-inline-item">
@@ -228,67 +206,12 @@
 						</div>
 					</div>
 					<div class="team-item-content">
-						<h4 class="mt-3 mb-0 text-capitalize">David Williams</h4>
-						<p>Senior Marketer</p>
+						<h4 class="mt-3 mb-0 text-capitalize">Suman Biswas</h4>
+						<p>Backend Developer</p>
 					</div>
 				</div>
 			</div>
 
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="team-item-wrap mb-5 mb-lg-0">
-					<div class="team-item position-relative">
-						<img src="{% static 'images/team/team-6.jpg' %}" alt="" class="img-fluid w-100">
-						<div class="team-img-hover">
-							<ul class="team-social list-inline">
-								<li class="list-inline-item">
-									<a href="#" class="facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-								</li>
-								<li class="list-inline-item">
-									<a href="#" class="twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-								</li>
-								<li class="list-inline-item">
-									<a href="#" class="instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-								</li>
-								<li class="list-inline-item">
-									<a href="#" class="linkedin"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="team-item-content">
-						<h4 class="mt-3 mb-0 text-capitalize">Peter Odin</h4>
-						<p>App Developer</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="team-item-wrap mb-5 mb-lg-0 ">
-					<div class="team-item position-relative">
-						<img src="{% static 'images/team/team-5.jpg' %}" alt="" class="img-fluid w-100">
-						<div class="team-img-hover">
-							<ul class="team-social list-inline">
-								<li class="list-inline-item">
-									<a href="#" class="facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-								</li>
-								<li class="list-inline-item">
-									<a href="#" class="twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-								</li>
-								<li class="list-inline-item">
-									<a href="#" class="instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-								</li>
-								<li class="list-inline-item">
-									<a href="#" class="linkedin"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="team-item-content">
-						<h4 class="mt-3 mb-0 text-capitalize">David Spensor</h4>
-						<p>Project Manager</p>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </section>
@@ -307,16 +230,16 @@
 	</div>
 
 	<div class="container">
-		<div class="testimonial-wrap">
+		<div class="row testimonial-wrap">
 			<div class="testimonial-item position-relative">
 				<i class="ti-quote-left text-color"></i>
 
 				<div class="testimonial-item-content">
-					<p class="testimonial-text">Quam maiores perspiciatis temporibus odio reiciendis error alias debitis atque consequuntur natus iusto recusandae numquam corrupti facilis blanditiis.</p>
+					<p class="testimonial-text">It has been a year now since our team is using ReumeParser. I never had complaints regarding the product and their services.</p>
 
 					<div class="testimonial-author">
 						<h5 class="mb-0 text-capitalize">Thomas Johnson</h5>
-						<p>Excutive Director,themefisher</p>
+						<p>Excutive Director,Ultra Tech</p>
 					</div>
 				</div>
 			</div>
@@ -324,11 +247,11 @@
 				<i class="ti-quote-left text-color"></i>
 
 				<div class="testimonial-item-content">
-					<p class="testimonial-text">Consectetur adipisicing elit. Quam maiores perspiciatis temporibus odio reiciendis error alias debitis atque consequuntur natus iusto recusandae .</p>
+					<p class="testimonial-text">Have been doing business with them for 7 months now and they have never failed to amaze me with their service. I recommend them to others whenever I get chance.</p>
 
 					<div class="testimonial-author">
 						<h5 class="mb-0 text-capitalize">Mickel hussy</h5>
-						<p>Excutive Director,themefisher</p>
+						<p>Excutive Director,ExoGraphics Media</p>
 					</div>
 				</div>
 			</div>
@@ -336,11 +259,11 @@
 				<i class="ti-quote-left text-color"></i>
 
 				<div class="testimonial-item-content">
-					<p class="testimonial-text">Quam maiores perspiciatis temporibus odio reiciendis error alias debitis atque consequuntur natus iusto recusandae numquam corrupti.</p>
+					<p class="testimonial-text">Exceptional Services! A smooth service is the best part of the ResumeParser. I'll surely make a repetitive order with them, and recommend others to go with this reputated company.</p>
 
 					<div class="testimonial-author">
-						<h5 class="mb-0 text-capitalize">James Watson</h5>
-						<p>Excutive Director,themefisher</p>
+						<h5 class="mb-0 text-capitalize">Lucas Gallone</h5>
+						<p>CFO,TechGiants</p>
 					</div>
 				</div>
 			</div>
@@ -348,11 +271,11 @@
 				<i class="ti-quote-left text-color"></i>
 
 				<div class="testimonial-item-content">
-					<p class="testimonial-text">Consectetur adipisicing elit. Quam maiores perspiciatis temporibus odio reiciendis error alias debitis atque consequuntur natus iusto recusandae .</p>
+					<p class="testimonial-text">Have been doing business with them for 2 Yesrs now and they have never failed to amaze me with their service. I recommend them to others whenever I get chance.</p>
 
 					<div class="testimonial-author">
-						<h5 class="mb-0 text-capitalize">Mickel hussy</h5>
-						<p>Excutive Director,themefisher</p>
+						<h5 class="mb-0 text-capitalize">Andrew Neel</h5>
+						<p>Excutive Manager,Josh Media</p>
 					</div>
 				</div>
 			</div>
