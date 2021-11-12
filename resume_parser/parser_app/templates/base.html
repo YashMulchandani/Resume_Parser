@@ -4,6 +4,23 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+<section class="page-title bg-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <h1 class="text-capitalize mb-4 text-lg">Resume Parser</h1>
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="{% url 'homepage' %}" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="{% url 'Parser' %}" class="text-white-50">Parser</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br><br>
 <div class="container-fluid">
 
       {% if form %}

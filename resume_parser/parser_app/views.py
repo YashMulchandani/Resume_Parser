@@ -18,7 +18,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from .decorators import unauthenticated_user
 
 
-def validate(customer):
+def validate(customer, **form):
+
     if customer.Subscription == True:
         customer.Number_of_Resumes = customer.Number_of_Resumes + 1
         customer.save()
