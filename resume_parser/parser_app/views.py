@@ -19,7 +19,6 @@ from .decorators import unauthenticated_user
 
 
 def validate(customer):
-
     if customer.Subscription == True:
         customer.Number_of_Resumes = customer.Number_of_Resumes + 1
         customer.save()
@@ -158,7 +157,6 @@ def pricing(request):
 
 
 def loader(request):
-
     return render(request, 'loader.html', )
 
 
