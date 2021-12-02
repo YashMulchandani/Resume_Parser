@@ -18,7 +18,7 @@ python resume_parser/manage.py runserver
 
 # Working:
 
-![Working](results/Screenshot (278).png)
+![Working](results/Resume_Parser.png)
 
 # Running app in Docker
 
