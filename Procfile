@@ -1,1 +1,1 @@
-web:gunicorn Resume_Parser.wsgi
+web:gunicorn resume_parser.wsgi
