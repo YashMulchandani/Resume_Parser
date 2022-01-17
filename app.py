@@ -1,1 +1,1 @@
-open(file="resume_parser\resume_parser\wsgi.py")
+open(file="resume_parser\parser_app")
