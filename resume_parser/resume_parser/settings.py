@@ -25,7 +25,7 @@ SECRET_KEY = 'fa^pq*c1#+6_(6jgxxr&2o-9bt$5u_f=aldx0yceaed3#c1b^b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','Resume_Parser.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'resumextractor.herokuapp.com']
 
 
 # Application definition
@@ -127,7 +127,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # for uploading resume files
-MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'mediafiles')
+MEDIA_ROOT = os.path.join(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))), 'mediafiles')
 MEDIA_URL = '/mediafiles/'
 
 # User session expire on browser close
@@ -138,9 +139,9 @@ SESSION_COOKIE_AGE = 600  # set just 10 minutes
 SESSION_SAVE_EVERY_REQUEST = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com' # new
-EMAIL_HOST_USER = 'resumeparser.hr@gmail.com' # new
-EMAIL_HOST_PASSWORD = 'mouahzuhbvscnhgp' # new
-EMAIL_PORT = 587 # new
+EMAIL_HOST = 'smtp.gmail.com'  # new
+EMAIL_HOST_USER = 'resumeparser.hr@gmail.com'  # new
+EMAIL_HOST_PASSWORD = 'mouahzuhbvscnhgp'  # new
+EMAIL_PORT = 587  # new
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
