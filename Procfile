@@ -1,1 +1,1 @@
-web:gunicorn resume_parser/manage.py --log-file -
+web:gunicorn ResumeParser/resume_parser.wsgi --log-file -
