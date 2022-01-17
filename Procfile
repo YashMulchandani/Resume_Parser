@@ -1,1 +1,1 @@
-web:gunicorn ResumeParser/resume_parser/resume_parser/wsgi.py --log-file -
+web: sh setup.sh && streamlit run app.py
