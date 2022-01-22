@@ -76,7 +76,7 @@ spacy==2.3.5
 spacy-legacy==3.0.2
 sqlparse==0.4.1
 srsly==1.0.5
-streamlit
+# streamlit
 texttable==1.6.4
 thinc==7.4.5
 threadpoolctl==2.1.0
